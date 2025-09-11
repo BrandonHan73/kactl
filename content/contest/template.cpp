@@ -5,6 +5,8 @@ using namespace std;
 #define all(x) begin(x), end(x)
 #define sz(x) (int)(x).size()
 typedef long long ll;
+typedef pair<ll, ll> pll;
+typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 

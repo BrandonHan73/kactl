@@ -3,7 +3,8 @@
  * Date: 2015-02-23
  * License: CC0
  * Source: http://en.wikipedia.org/wiki/Bellman-Ford_algorithm
- * Description: Calculates shortest paths from $s$ in a graph that might have negative edge weights.
+ * Description: Computes shortest paths from a single source vertex $s$ to all of the other 
+ * vertices in a weighted directed graph. Can handle negative edge weights. 
  * Unreachable nodes get dist = inf; nodes reachable through negative-weight cycles get dist = -inf.
  * Assumes $V^2 \max |w_i| < \tilde{} 2^{63}$.
  * Time: O(VE)
@@ -30,7 +31,6 @@ void bellmanFord(vector<Node>& nodes, vector<Ed>& eds, int s) {
 		}
 	}
 	rep(i,0,lim) for (Ed e : eds) {
-		if (nodes[e.a].dist == -inf)
-			nodes[e.b].dist = -inf;
+		if (nodes[e.a].dist == -inf) nodes[e.b].dist = -inf;
 	}
 }
