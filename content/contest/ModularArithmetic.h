@@ -10,7 +10,7 @@
 
 #include "euclid.h"
 
-const ll mod = 17; // change to something else
+const ll mod = 998244353; // change to something else
 struct Mod {
 	ll x;
 	Mod(ll xx=0) : x(xx) {}
@@ -27,4 +27,6 @@ struct Mod {
 		Mod r = *this ^ (e / 2); r = r * r;
 		return e&1 ? *this * r : r;
 	}
+	friend istream &operator>>(istream &st, Mod a) { st >> a.x; }
+	friend ostream &operator<<(ostream &st, Mod a) { st << a.x; }
 };
