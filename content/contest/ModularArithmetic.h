@@ -11,6 +11,11 @@
 #include "euclid.h"
 
 const ll mod = 998244353; // change to something else
+ll euclid(ll a, ll b, ll &x, ll &y) {
+	if (!b) return x = 1, y = 0, a;
+	ll d = euclid(b, a % b, y, x);
+	return y -= a/b * x, d;
+}
 struct Mod {
 	ll x;
 	Mod(ll xx=0) : x(xx) {}
@@ -27,6 +32,6 @@ struct Mod {
 		Mod r = *this ^ (e / 2); r = r * r;
 		return e&1 ? *this * r : r;
 	}
-	friend istream &operator>>(istream &st, Mod a) { st >> a.x; }
-	friend ostream &operator<<(ostream &st, Mod a) { st << a.x; }
+	friend istream &operator>>(istream &st, Mod a) { return st >> a.x; }
+	friend ostream &operator<<(ostream &st, Mod a) { return st << a.x; }
 };

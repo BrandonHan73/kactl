@@ -35,5 +35,5 @@ struct Frac {
 	Frac operator/(Frac b) { return *this * b.invert(); }
 	Frac negate() { return Frac(-p, q); }
 	Frac invert() { return Frac(q, p); }
-	friend ostream &operator<<(ostream &st, Mod a) { st << a.p << '/' << a.q; }
+	friend ostream &operator<<(ostream &st, Frac a) { return st << a.p << '/' << a.q; }
 };

@@ -9,7 +9,7 @@
  * input[not source] = inf. Unreachable nodes get dist = inf
  * Usage: 
  * Dijkstra dij(n);  dij.addEdge(a, b, w);
- * vector<ll> dist(n, inf);  dist[source] = 0;
+ * vll dist(n, inf);  dist[source] = 0;
  * dij.solve(dist);
  */
 #pragma once
@@ -22,16 +22,15 @@ struct Dijkstra {
 	void addEdge(int a, int b, ll w=1) {
 		eds[a].push_back({w, b});
 	}
-	void solve(vector<ll> &out) {
-		priority_queue<plli, vector<plli>, greater<plli>> pq;
+	void solve(vll &out) {
+		priority_queue<plli> pq;
 		rep(i, 0, sz(out)) pq.push({out[i], i});
 		fill(all(out), inf);
 		while(sz(pq) > 0) {
-			plli dc = pq.top(); pq.pop();
-			if(dc.first >= out[dc.second]) continue;
-			out[dc.second] = dc.first;
-			for(plli e : eds[dc.second]) pq.push({dc.first + e.first, e.second});
+			auto [dist, curr] = pq.top(); pq.pop();
+			if(dist >= out[curr]) continue;
+			out[curr] = dist;
+			for(auto [d, nxt] : eds[curr]) pq.push({dist + d, nxt});
 		}
 	}
 };
-
