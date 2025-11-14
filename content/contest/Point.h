@@ -10,9 +10,9 @@
 #pragma once
 
 template <class T> int sgn(T x) { return (x > 0) - (x < 0); }
+template <class T>
 struct Point {
 	typedef Point P;
-	typedef ll T;
 	T x, y;
 	explicit Point(T x=0, T y=0) : x(x), y(y) {}
 	bool operator<(P p) const { return tie(x,y) < tie(p.x,p.y); }

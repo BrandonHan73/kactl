@@ -8,8 +8,6 @@
  */
 #pragma once
 
-#include "euclid.h"
-
 const ll mod = 998244353; // change to something else
 ll euclid(ll a, ll b, ll &x, ll &y) {
 	if (!b) return x = 1, y = 0, a;
